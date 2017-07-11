@@ -1,0 +1,13 @@
+database:
+  host:     'db.example.com'
+  port:     5432
+  dbname:   'dimension_c137'
+  user:     'rick'
+  password: 'wubalubadubdub'
+web:
+  login:
+    url:      'http://login.example.com/users/sign_in'
+    username: 'r.sanchez@example.com'
+    password: 'wubalubadubdub'
+  download:
+    url_template: 'http://example.com/schmeckles/:id/buyers.csv'
