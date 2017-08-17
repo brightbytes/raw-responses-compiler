@@ -6,7 +6,7 @@ class OptParser
       keep_csvs: false
     }
 
-    raise ArgumentError, 'Must have numeric organization ID as last listed argument.' if args.empty? || /\A\d+|-h\Z/.match(args.last.strip).nil?
+    raise ArgumentError, 'Must have numeric organization ID as last listed argument.' if args.empty? || /\A\d+|[\-h|\-\-help]\Z/.match(args.last.strip).nil?
 
     options[:org_id] = args.last
 
@@ -21,10 +21,6 @@ class OptParser
 
       opts.on('-e', '--end [DATE]', String, 'Remove records submitted after DATE.  (DATE FORMAT: YYYY-MM-DD)') do |e|
         options[:end_date] = e
-      end
-
-      opts.on('-k', '--keep', "Keep source CSV files when script finishes?  (DEFAULT: #{options[:keep_csvs]})") do |k|
-        options[:keep_csvs] = d
       end
 
       opts.on_tail("-h", "--help", "Show this help message.") do

@@ -1,5 +1,17 @@
 require 'uri'
 
+def query_date_filter_helper(start_date, end_date)
+  if start_date && end_date.nil?
+    "AND      qr.submitted_at > '#{start_date}'"
+  elsif end_date && start_date.nil?
+    "AND      qr.submitted_at < '#{end_date}'"
+  elsif start_date && end_date
+    "AND      qr.submitted_at BETWEEN '#{start_date}' AND '#{end_date}'"
+  else
+    ""
+  end
+end
+
 def url_template_helper(template, id, start_date, end_date)
   date_format = '%b %m, %Y'
   url_params = '?'

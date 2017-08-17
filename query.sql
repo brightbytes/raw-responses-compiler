@@ -14,6 +14,16 @@ JOIN     questionnaire_survey_templates AS qst
          ON qst.questionnaire_id = q.id
 JOIN     survey_templates AS st
          ON st.id = qst.survey_template_id
+JOIN     (SELECT   qr.questionnaire_id
+          FROM     questionnaire_responses AS qr
+          WHERE    (qr.organization_id IN (SELECT r.child_id
+                                          FROM   relationships AS r
+                                          WHERE  r.parent_id = /* PARENT_ORGANIZATION_ID */)
+                    OR qr.organization_id = /* PARENT_ORGANIZATION_ID */)
+          /* DATE_FILTER_PLACEHOLDER */
+          GROUP BY qr.raw_data::JSON->>'campaign_id', qr.questionnaire_id, qr.organization_id
+          HAVING   COUNT(qr.organization_id) > 0) AS no_responses_filter
+         ON no_responses_filter.questionnaire_id = q.id
 WHERE    (o.id IN (SELECT r.child_id
                    FROM   relationships AS r
                    WHERE  r.parent_id = /* PARENT_ORGANIZATION_ID */)

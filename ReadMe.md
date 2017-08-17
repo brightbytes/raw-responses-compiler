@@ -27,6 +27,5 @@ usage: raw_responses_compiler.rb [options] PARENT_ORGANIZATION_ID
 Specific options:
     -s, --start [DATE]               Remove records submitted before DATE.  (DATE FORMAT: YYYY-MM-DD)
     -e, --end [DATE]                 Remove records submitted after DATE.  (DATE FORMAT: YYYY-MM-DD)
-    -k, --keep                       Keep source CSV files when script finishes?  (DEFAULT: false)
     -h, --help                       Show this help message.
 ```
