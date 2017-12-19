@@ -13,7 +13,7 @@ def query_date_filter_helper(start_date, end_date)
 end
 
 def url_template_helper(template, id, start_date, end_date)
-  date_format = '%b %m, %Y'
+  date_format = '%b %d, %Y'
   url_params = '?'
   if start_date
     start_date = URI.encode(Date.parse(start_date)
