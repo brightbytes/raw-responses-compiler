@@ -12,7 +12,7 @@ class XlsxCompiler
   def compile!(csv_filepath, organization_name, group_name)
     close_previous_and_open_new_workbook(organization_name) if @current_organization.nil? || @current_organization != organization_name
     csv = CSV.read(csv_filepath, headers: true)
-    if csv.size > 1
+    if csv.size > 0
       worksheet = @current_workbook.add_worksheet(group_name)
       worksheet.write_row(0, 0, csv.headers.reject { |cell| remove_columns.include?(cell) }, @bold_text)
       csv.each_with_index do |row, i|
