@@ -1,13 +1,16 @@
+# Clarity DB credentials. You can find them through heroku or ask an engineer for the Read-only credentials
 database:
-  host:     'db.example.com'
+  host:     ''
   port:     5432
-  dbname:   'dimension_c137'
-  user:     'rick'
-  password: 'wubalubadubdub'
+  dbname:   ''
+  user:     'support'
+  password: ''
+
+# Questionnaire builder login credentials. This uses your Clarity login credentials
 web:
   login:
-    url:      'http://login.example.com/users/sign_in'
-    username: 'r.sanchez@example.com'
-    password: 'wubalubadubdub'
+    url:      'https://qb.brightbytes.net/users/sign_in'
+    username: ''
+    password: ''
   download:
-    url_template: 'http://example.com/schmeckles/:id/buyers.csv'
+    url_template: 'http://qb.brightbytes.net/campaigns/:id/responses.csv'

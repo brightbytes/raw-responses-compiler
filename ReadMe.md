@@ -15,9 +15,15 @@
 4. `cp config.example.yml config.yml`
 5. Be sure to change the example configuration values to valid ones.
 
-## Example Run
+## Usage
 
-`./raw_responses_compiler.rb -s 2017-01-01 -e 2017-12-31 123`
+```sh
+ruby ./raw_responses_compiler.rb -s <start_date> -e <end_date> <org_id>
+
+# Or
+chmod u+x ./raw_responses_compiler.rb
+./raw_responses_compiler.rb -s <start_date> -e <end_date> <org_id>
+```
 
 ## Help Text
 
